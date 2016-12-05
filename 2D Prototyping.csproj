@@ -77,10 +77,10 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\DestroyMe.cs" />
     <Compile Include="Assets\Scripts\cameraFollow2DPlatformer.cs" />
-    <Compile Include="Assets\Scripts\enemyController.cs" />
     <Compile Include="Assets\Scripts\enemyDamage.cs" />
     <Compile Include="Assets\Scripts\enemyHealth.cs" />
     <Compile Include="Assets\Scripts\enemyMovementController.cs" />
+    <Compile Include="Assets\Scripts\fallThrough.cs" />
     <Compile Include="Assets\Scripts\playerController.cs" />
     <Compile Include="Assets\Scripts\playerHealth.cs" />
     <Compile Include="Assets\Scripts\projectileController.cs" />

@@ -19,6 +19,7 @@ public class playerHealth : MonoBehaviour {
 
     playerController controlMovement;
     SpriteRenderer renderer;
+    Rigidbody2D myRB;
     
 
     AudioSource playerAS;
@@ -29,7 +30,8 @@ public class playerHealth : MonoBehaviour {
         currentHealth = fullHealth;
         controlMovement = GetComponent<playerController>();
         renderer = GetComponent<SpriteRenderer>();
-        
+        myRB = GetComponent<Rigidbody2D>();
+
 
         //HUD Initialization
         healthSlider.maxValue = fullHealth;
@@ -68,15 +70,15 @@ public class playerHealth : MonoBehaviour {
     public void makeDead()
     {
         
+        controlMovement.enabled = false; // once dead, you cant move.
+        myRB.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY; // make ssure player doesnt get knockback once dead.
+        renderer.enabled = false; //once dead, hide the sprite
+
         playerAS.clip = playerDie;
-        
         playerAS.PlayOneShot(playerDie);
-        renderer.enabled = false;
-        controlMovement.enabled = false;
-        
-        
+               
         Instantiate(deathFX, transform.position, transform.rotation);
-        Destroy(gameObject,.8f);
+        Destroy(gameObject,.5f);
               
         
     }
