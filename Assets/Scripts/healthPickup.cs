@@ -9,13 +9,9 @@ public class healthPickup : MonoBehaviour {
     //audio variables
     public AudioClip playerCollect;
 
-    AudioSource playerAS;
-    SpriteRenderer renderer;
-
     // Use this for initialization
     void Start () {
-        playerAS = GetComponent<AudioSource>();
-        renderer = GetComponent<SpriteRenderer>();
+
     }
 	
 	// Update is called once per frame
@@ -27,13 +23,13 @@ public class healthPickup : MonoBehaviour {
     {
         if(other.tag == "Player")
         {
-            renderer.enabled = false; //once collected, hide the sprite
-            
-            playerAS.PlayOneShot(playerCollect); //play sound
+
             playerHealth theHealth = other.gameObject.GetComponent<playerHealth>();
 
             theHealth.addHealth(healthAmount); //increase health
-            Destroy(gameObject, playerCollect.length); //destroy after sound is done
+            Destroy(gameObject); //destroy after sound is done
+
+            AudioSource.PlayClipAtPoint(playerCollect, transform.position); // Fixes audio playing after object is destroyed.
         }
     }
 }

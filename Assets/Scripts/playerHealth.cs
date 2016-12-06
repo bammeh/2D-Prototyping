@@ -17,28 +17,18 @@ public class playerHealth : MonoBehaviour {
 
     float currentHealth;
 
-    playerController controlMovement;
-    SpriteRenderer renderer;
-    Rigidbody2D myRB;
-    
-
     AudioSource playerAS;
 
 
 	// Use this for initialization
 	void Start () {
         currentHealth = fullHealth;
-        controlMovement = GetComponent<playerController>();
-        renderer = GetComponent<SpriteRenderer>();
-        myRB = GetComponent<Rigidbody2D>();
-
-
+        
         //HUD Initialization
         healthSlider.maxValue = fullHealth;
         healthSlider.value = fullHealth;
 
         playerAS = GetComponent<AudioSource>();
-
 	}
 	
 	// Update is called once per frame
@@ -79,17 +69,8 @@ public class playerHealth : MonoBehaviour {
 
     public void makeDead()
     {
-        
-        controlMovement.enabled = false; // once dead, you cant move.
-        myRB.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY; // makes sure player doesnt get knockback once dead.
-        renderer.enabled = false; //once dead, hide the sprite
-
-        playerAS.clip = playerDie;
-        playerAS.PlayOneShot(playerDie);
-               
         Instantiate(deathFX, transform.position, transform.rotation);
-        Destroy(gameObject,.5f);
-              
-        
+        Destroy(gameObject);
+        AudioSource.PlayClipAtPoint(playerDie, transform.position); // Fixes audio playing after object is destroyed.
     }
 }
