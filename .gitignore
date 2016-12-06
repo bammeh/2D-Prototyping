@@ -242,3 +242,8 @@ ModelManifest.xml
 .fake/
 /Assets/Audio/JRPG Soundtrack
 /Assets/Audio
+/Temp/UnityLockfile
+*.dll
+/Library/UnityAssemblies/UnityEngine.Advertisements.xml
+/Library/UnityAssemblies/UnityEngine.Purchasing.xml
+/Temp

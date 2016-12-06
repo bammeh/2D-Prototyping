@@ -62,16 +62,26 @@ public class playerHealth : MonoBehaviour {
 
         if (currentHealth <= 0)
         {
-
             makeDead();
         }
+    }
+
+    public void addHealth(float healthAmount)
+    {
+        currentHealth += healthAmount;
+
+        if(currentHealth > fullHealth)
+        {
+            currentHealth = fullHealth;
+        }
+        healthSlider.value = currentHealth;
     }
 
     public void makeDead()
     {
         
         controlMovement.enabled = false; // once dead, you cant move.
-        myRB.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY; // make ssure player doesnt get knockback once dead.
+        myRB.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY; // makes sure player doesnt get knockback once dead.
         renderer.enabled = false; //once dead, hide the sprite
 
         playerAS.clip = playerDie;

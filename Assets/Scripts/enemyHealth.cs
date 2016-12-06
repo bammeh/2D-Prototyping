@@ -8,6 +8,9 @@ public class enemyHealth : MonoBehaviour {
     public float enemyMaxHealth;
     public GameObject enemyDeathFX;
 
+    public bool drops;
+    public GameObject theDrop;
+    
     //HUD variables
     public Slider enemyHealthSlider;
 
@@ -20,7 +23,6 @@ public class enemyHealth : MonoBehaviour {
         //HUD Initialization
         enemyHealthSlider.maxValue = enemyMaxHealth;
         enemyHealthSlider.value = enemyMaxHealth;
-
     }
 	
 	// Update is called once per frame
@@ -43,7 +45,13 @@ public class enemyHealth : MonoBehaviour {
 
     void makeDead()
     {
-        Instantiate(enemyDeathFX, transform.position, transform.rotation);
         Destroy(gameObject);
+        Instantiate(enemyDeathFX, transform.position, transform.rotation);
+        if (drops) //ADD A RANDOMIZATION HERE SO NOT EVERY MOB DROPS HEALTH
+        {
+            Instantiate(theDrop, transform.position, transform.rotation);
+            
+        }
+        
     }
 }
