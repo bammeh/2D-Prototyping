@@ -1,7 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2D Prototyping.Plugins", "2D Prototyping.Plugins.csproj", "{DEBCAEA9-7478-5804-82CB-7C21C8B45047}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2D Prototyping", "2D Prototyping.csproj", "{1935376A-16BD-6C2D-0748-FD0CDBC3CEA5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2D Prototyping.Editor.Plugins", "2D Prototyping.Editor.Plugins.csproj", "{711BEA05-E8D6-1F0B-4E1F-25FEF49FCB0F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +13,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DEBCAEA9-7478-5804-82CB-7C21C8B45047}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEBCAEA9-7478-5804-82CB-7C21C8B45047}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEBCAEA9-7478-5804-82CB-7C21C8B45047}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEBCAEA9-7478-5804-82CB-7C21C8B45047}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1935376A-16BD-6C2D-0748-FD0CDBC3CEA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1935376A-16BD-6C2D-0748-FD0CDBC3CEA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1935376A-16BD-6C2D-0748-FD0CDBC3CEA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1935376A-16BD-6C2D-0748-FD0CDBC3CEA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{711BEA05-E8D6-1F0B-4E1F-25FEF49FCB0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{711BEA05-E8D6-1F0B-4E1F-25FEF49FCB0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{711BEA05-E8D6-1F0B-4E1F-25FEF49FCB0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{711BEA05-E8D6-1F0B-4E1F-25FEF49FCB0F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
