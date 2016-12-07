@@ -63,6 +63,13 @@ public class playerController : MonoBehaviour
 
         //Check if we are running either in the Unity editor or in a standalone build.
 #if UNITY_STANDALONE || UNITY_WEBPLAYER
+
+        // Player shooting - WONT WORK FOR SOME REASON.
+        if (Input.GetAxisRaw("Fire1") > 0)
+        {
+            fireRocket();
+        }
+
         //NEEDED FOR PROPER ANIMATION - check if we are grounded. If no, then we are falling.
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
         myAnim.SetBool("isGrounded", grounded);
@@ -84,18 +91,14 @@ public class playerController : MonoBehaviour
             flip();
         }
 
-                if (grounded && Input.GetAxis("Jump") > 0)
+        if (grounded && Input.GetAxis("Jump") > 0)
         {
             grounded = false;
             myAnim.SetBool("isGrounded", grounded);
             myRB.AddForce(new Vector2(0, jumpHeight));
         }
 
-        // Player shooting
-        if (Input.GetAxisRaw("Fire1") > 0)
-        {
-            fireRocket();
-        }
+
 
 //Check if we are running on iOS, Android, Windows Phone 8 or Unity iPhone
 #elif UNITY_IOS || UNITY_ANDROID || UNITY_WP8 || UNITY_IPHONE
@@ -118,7 +121,7 @@ public class playerController : MonoBehaviour
 
         //Movement Script
         float moveX = CrossPlatformInputManager.GetAxis("Horizontal");
-        Vector2 moveVec = new Vector2(moveX,CrossPlatformInputManager.GetAxis("Vertical")) * maxSpeed;
+        //Vector2 moveVec = new Vector2(moveX ,CrossPlatformInputManager.GetAxis("Vertical")) * maxSpeed;
 
         myAnim.SetFloat("speed", Mathf.Abs(moveX));
         myRB.velocity = new Vector2(moveX * maxSpeed, myRB.velocity.y);
@@ -131,7 +134,7 @@ public class playerController : MonoBehaviour
         {
             grounded = false;
             myAnim.SetBool("isGrounded", grounded);
-            myRB.AddForce(new Vector2(0, jumpHeight));
+            myRB.AddForce(new Vector2(0, jumpHeight*.85f));
         }
 
 
