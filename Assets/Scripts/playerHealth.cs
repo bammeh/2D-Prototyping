@@ -69,6 +69,8 @@ public class playerHealth : MonoBehaviour {
 
     public void makeDead()
     {
+        currentHealth = 0;
+        healthSlider.value = currentHealth;
         Instantiate(deathFX, transform.position, transform.rotation);
         Destroy(gameObject);
         AudioSource.PlayClipAtPoint(playerDie, transform.position); // Fixes audio playing after object is destroyed.

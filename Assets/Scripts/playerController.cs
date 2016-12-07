@@ -127,14 +127,14 @@ public class playerController : MonoBehaviour
         myRB.velocity = new Vector2(moveX * maxSpeed, myRB.velocity.y);
 
 
-        //New Jumping
+        //New Jumping 
         bool isJumping = CrossPlatformInputManager.GetButton("Jump");
 
         if (grounded && isJumping)
         {
             grounded = false;
             myAnim.SetBool("isGrounded", grounded);
-            myRB.AddForce(new Vector2(0, jumpHeight*.85f));
+            myRB.AddForce(new Vector2(0, jumpHeight*.85f)); // Shouldnt need to do this, fix later BUG.
         }
 
 

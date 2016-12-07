@@ -81,6 +81,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Cleaner.cs" />
     <Compile Include="Assets\Scripts\DestroyMe.cs" />
     <Compile Include="Assets\Scripts\cameraFollow2DPlatformer.cs" />
     <Compile Include="Assets\Scripts\enemyDamage.cs" />
