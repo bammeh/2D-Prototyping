@@ -24,6 +24,9 @@ public class playerHealth : MonoBehaviour {
     Color damagedColor = new Color(0f, 0f, 0f, .9f);
     float smoothColor = 5f;
 
+    //restart Game
+    public restartGame theGameManager;
+
 
 	// Use this for initialization
 	void Start () {
@@ -34,6 +37,8 @@ public class playerHealth : MonoBehaviour {
         healthSlider.value = fullHealth;
 
         playerAS = GetComponent<AudioSource>();
+
+        
 	}
 	
 	// Update is called once per frame
@@ -79,11 +84,18 @@ public class playerHealth : MonoBehaviour {
         Instantiate(deathFX, transform.position, transform.rotation);
         Destroy(gameObject);
         AudioSource.PlayClipAtPoint(playerDie, transform.position); // Fixes audio playing after object is destroyed.
-        damageScreen.color = damagedColor;
+
 
         //Game Over Screen
+        damageScreen.color = damagedColor;
         Animator gameOverAnim = gameOverScreen.GetComponent<Animator>();
-
         gameOverAnim.SetTrigger("gameOver");
+        theGameManager.restartTheGame();
+    }
+
+    public void winGame()
+    {
+        Destroy(gameObject);
+        theGameManager.restartTheGame();
     }
 }

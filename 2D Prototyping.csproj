@@ -92,9 +92,12 @@
     <Compile Include="Assets\Scripts\playerController.cs" />
     <Compile Include="Assets\Scripts\playerHealth.cs" />
     <Compile Include="Assets\Scripts\projectileController.cs" />
+    <Compile Include="Assets\Scripts\restartGame.cs" />
     <Compile Include="Assets\Scripts\rocketHit.cs" />
     <Compile Include="Assets\Scripts\shootSpore.cs" />
+    <Compile Include="Assets\Scripts\spawnDoor.cs" />
     <Compile Include="Assets\Scripts\sporeController.cs" />
+    <Compile Include="Assets\Scripts\winGame.cs" />
     <Compile Include="Assets\virtualJoystick.cs" />
   </ItemGroup>
   <ItemGroup>
