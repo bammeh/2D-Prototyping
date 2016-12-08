@@ -20,8 +20,8 @@ public class playerController : MonoBehaviour
     Animator myAnim;
     SpriteRenderer mySR;
     bool facingRight;
-    bool rightButtonPressed;
-    bool leftButtonPressed;
+
+    bool paused = false;
 
     //for shooting
     public Transform gunTip;
@@ -44,18 +44,13 @@ public class playerController : MonoBehaviour
     //Once Per Frame
     void Update()
     {
-        /*if (grounded && Input.GetAxis("Jump") > 0)
-        {
-            grounded = false;
-            myAnim.SetBool("isGrounded", grounded);
-            myRB.AddForce(new Vector2(0, jumpHeight));
-        }
+        //Pausing
+        bool isPausing = Input.GetKeyDown(KeyCode.Escape); // clicking the button does not work yet. MUST USE ESCAPE
 
-        // Player shooting
-        if (Input.GetAxisRaw("Fire1") > 0)
+        if (isPausing)
         {
-            fireRocket();
-        }*/
+            togglePause();
+        }
     }
 
     void FixedUpdate()
@@ -134,7 +129,7 @@ public class playerController : MonoBehaviour
         {
             grounded = false;
             myAnim.SetBool("isGrounded", grounded);
-            myRB.AddForce(new Vector2(0, jumpHeight*.85f)); // Shouldnt need to do this, fix later BUG.
+            myRB.AddForce(new Vector2(0, jumpHeight * .85f)); // Shouldnt need to do this, fix later BUG.
         }
 
 
@@ -154,8 +149,25 @@ public class playerController : MonoBehaviour
         {
             fireRocket();
         }
-        #endif //End of mobile platform dependendent compilation section started above with #elif
+
+        
+#endif //End of mobile platform dependendent compilation section started above with #elif
     }
+// Pausing Function
+    void togglePause()
+    {
+        if (paused)
+        {
+            Time.timeScale = 1f;
+            paused = false;
+        }
+        else
+        {
+            Time.timeScale = 0f;
+            paused = true;
+        }
+    }
+
     void flip()
     {
         facingRight = !facingRight;

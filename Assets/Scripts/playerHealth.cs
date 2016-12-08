@@ -10,6 +10,8 @@ public class playerHealth : MonoBehaviour {
 
     //HUD variables
     public Slider healthSlider;
+    public Image damageScreen;
+    public Text gameOverScreen;
 
     //audio variables
     public AudioClip playerHurt;
@@ -18,6 +20,9 @@ public class playerHealth : MonoBehaviour {
     float currentHealth;
 
     AudioSource playerAS;
+
+    Color damagedColor = new Color(0f, 0f, 0f, .9f);
+    float smoothColor = 5f;
 
 
 	// Use this for initialization
@@ -33,7 +38,7 @@ public class playerHealth : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        damageScreen.color = Color.Lerp(damageScreen.color, Color.clear, smoothColor * Time.deltaTime);
 	}
 
     public void addDamage(float damage)
@@ -74,5 +79,11 @@ public class playerHealth : MonoBehaviour {
         Instantiate(deathFX, transform.position, transform.rotation);
         Destroy(gameObject);
         AudioSource.PlayClipAtPoint(playerDie, transform.position); // Fixes audio playing after object is destroyed.
+        damageScreen.color = damagedColor;
+
+        //Game Over Screen
+        Animator gameOverAnim = gameOverScreen.GetComponent<Animator>();
+
+        gameOverAnim.SetTrigger("gameOver");
     }
 }
