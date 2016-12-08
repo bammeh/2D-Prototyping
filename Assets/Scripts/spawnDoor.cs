@@ -20,11 +20,15 @@ public class spawnDoor : MonoBehaviour {
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Player" && !activated)
+        if(other.tag == "Player" && activated)
         {
-            activated = true;
+            
             Instantiate(door, wheretoSpawn.position,Quaternion.identity);
             Destroy(gameObject);
         }
+    }
+    public void activateDoor()
+    {
+        activated = true;
     }
 }

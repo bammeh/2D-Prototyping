@@ -8,28 +8,33 @@ public class healthPickup : MonoBehaviour {
 
     //audio variables
     public AudioClip playerCollect;
+    public spawnDoor winDoor;
 
     // Use this for initialization
-    void Start () {
+    void Start() {
+        GameObject door = GameObject.FindGameObjectWithTag("Door");
+        winDoor = door.GetComponent<spawnDoor>();
+    }
+
+    // Update is called once per frame
+    void Update() {
 
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Player")
+        if (other.tag == "Player")
         {
 
-            playerHealth theHealth = other.gameObject.GetComponent<playerHealth>();
+                playerHealth theHealth = other.gameObject.GetComponent<playerHealth>();
 
-            theHealth.addHealth(healthAmount); //increase health
-            Destroy(gameObject); //destroy after sound is done
+                theHealth.addHealth(healthAmount); //increase health
+                Destroy(gameObject); //destroy after sound is done
 
-            AudioSource.PlayClipAtPoint(playerCollect, transform.position); // Fixes audio playing after object is destroyed.
+                AudioSource.PlayClipAtPoint(playerCollect, transform.position); // Fixes audio playing after object is destroyed.
+
+           
         }
+    
     }
 }

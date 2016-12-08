@@ -98,7 +98,11 @@ public class playerController : MonoBehaviour
 //Check if we are running on iOS, Android, Windows Phone 8 or Unity iPhone
 #elif UNITY_IOS || UNITY_ANDROID || UNITY_WP8 || UNITY_IPHONE
 
-
+       /* if (Input.GetAxisRaw("Fire1") > 0)
+        {
+            fireRocket();
+        }
+        */
         /*//JUMPING
         if (grounded && Input.GetAxis("Jump") > 0)
         {
