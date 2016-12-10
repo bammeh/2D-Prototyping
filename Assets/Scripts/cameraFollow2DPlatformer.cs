@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class cameraFollow2DPlatformer : MonoBehaviour {
 
-    public Transform target; // What camera is following
+    Transform target; // What camera is following
     public float smoothing; //dampening effect
 
     Vector3 offset;
@@ -12,6 +12,15 @@ public class cameraFollow2DPlatformer : MonoBehaviour {
     float lowY; // Lowest point camera can go on Y axis
 
 	// Use this for initialization
+    void Awake()
+    {
+        //GameObject player = GameObject.FindWithTag("Player");
+        
+       //GameObject player = GameObject.FindGameObjectWithTag("Player");
+        target = GameObject.Find("Player").transform;
+       // target = player.transform;
+        //target = transform.Find("Player");
+    }
 	void Start () {
         offset = transform.position - target.position; // what is difference of the two? Lets maintain that.
         lowY = transform.position.y; // current position of camera.

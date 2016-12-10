@@ -8,7 +8,7 @@ public class restartGame : MonoBehaviour {
     public float restartTime;
     bool restartNow = false;
     float resetTime;
-
+   
 
 	// Use this for initialization
 	void Start () {

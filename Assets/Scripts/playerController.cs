@@ -51,6 +51,7 @@ public class playerController : MonoBehaviour
         {
             togglePause();
         }
+        
     }
 
     void FixedUpdate()
@@ -103,14 +104,7 @@ public class playerController : MonoBehaviour
             fireRocket();
         }
         */
-        /*//JUMPING
-        if (grounded && Input.GetAxis("Jump") > 0)
-        {
-            grounded = false;
-            myAnim.SetBool("isGrounded", grounded);
-            myRB.AddForce(new Vector2(0, jumpHeight));
-        }
-        */
+
 
         //NEEDED FOR PROPER ANIMATION - check if we are grounded. If no, then we are falling.
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
@@ -122,8 +116,8 @@ public class playerController : MonoBehaviour
         float moveX = CrossPlatformInputManager.GetAxis("Horizontal");
         //Vector2 moveVec = new Vector2(moveX ,CrossPlatformInputManager.GetAxis("Vertical")) * maxSpeed;
 
-        myAnim.SetFloat("speed", Mathf.Abs(moveX));
-        myRB.velocity = new Vector2(moveX * maxSpeed, myRB.velocity.y);
+        myAnim.SetFloat("speed", Mathf.Abs(moveX)); //Animation
+        myRB.velocity = new Vector2(moveX * maxSpeed, myRB.velocity.y); // Move in the direction of the Horizontal Axis
 
 
         //New Jumping 
@@ -133,7 +127,7 @@ public class playerController : MonoBehaviour
         {
             grounded = false;
             myAnim.SetBool("isGrounded", grounded);
-            myRB.AddForce(new Vector2(0, jumpHeight * .85f)); // Shouldnt need to do this, fix later BUG.
+            myRB.AddForce(new Vector2(0, jumpHeight * .85f)); // Shouldnt need to do this "*.85f", fix later BUG.
         }
 
 

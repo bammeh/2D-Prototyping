@@ -21,8 +21,31 @@ public class menuManager : MonoBehaviour {
 
     }
 
+    public void mainMenu()
+    {
+        SceneManager.LoadScene(0, LoadSceneMode.Single);
+    }
+
+    public void characterSelect()
+    {
+        SceneManager.LoadScene(2, LoadSceneMode.Single);
+
+    }
+
     public void quitGame()
     {
         Application.Quit();
+    }
+
+    //Character Selection Buttons
+    public void chooseCharacter(int id)
+    {
+        PlayerPrefs.SetInt("character", id);
+        SceneManager.LoadScene(1, LoadSceneMode.Single);
+    }
+
+    public void rollCredits()
+    {
+        SceneManager.LoadScene(3, LoadSceneMode.Single);
     }
 }
