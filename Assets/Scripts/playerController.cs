@@ -58,7 +58,7 @@ public class playerController : MonoBehaviour
     {
 
         //Check if we are running either in the Unity editor or in a standalone build.
-#if UNITY_STANDALONE || UNITY_WEBPLAYER
+#if UNITY_STANDALONE || UNITY_WEBPLAYER || UNITY_WIN || UNITY_EDITOR
 
         // Player shooting - WONT WORK FOR SOME REASON.
         if (Input.GetAxisRaw("Fire1") > 0)
